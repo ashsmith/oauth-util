@@ -33,6 +33,39 @@ go install github.com/ashsmith/oauth-util@latest
 ### Option 3: Download pre-built binary
 Download the latest release for your platform from the releases page.
 
+## Releases
+
+This project uses automated releases via GitHub Actions. When a new semver tag is pushed (e.g., `v1.2.3`), the workflow will:
+
+1. **Build binaries** for multiple platforms:
+   - Linux (amd64, arm64)
+   - macOS (amd64, arm64)
+   - Windows (amd64, arm64)
+
+2. **Create a GitHub release** with:
+   - Release notes generated from commits
+   - Downloadable binaries for all platforms
+   - Source code archives
+
+### Creating a Release
+
+To create a new release:
+
+```bash
+# Create and push a new tag
+git tag v1.2.3
+git push origin v1.2.3
+```
+
+The GitHub Action will automatically:
+- Build all platform binaries
+- Create a release on GitHub
+- Upload the binaries for download
+
+### Downloading Releases
+
+Visit the [Releases page](https://github.com/ashsmith/oauth-util/releases) to download pre-built binaries for your platform.
+
 ## Usage
 
 ### Quick Start

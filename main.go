@@ -7,12 +7,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// version will be set during build time via ldflags
+var version = "dev"
+
 var rootCmd = &cobra.Command{
 	Use:   "oauth-util",
 	Short: "CLI tool to get JWT tokens via OAuth2 flow",
 	Long: `A fast and efficient CLI tool to obtain JWT tokens via OAuth2 flow
 with support for multiple providers.`,
-	Version: "1.0.0",
+	Version: version,
 }
 
 func init() {
