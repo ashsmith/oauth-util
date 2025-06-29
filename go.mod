@@ -1,4 +1,4 @@
-module oauth-util
+module github.com/ashsmith/oauth-util
 
 go 1.21.0
 
