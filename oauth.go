@@ -70,7 +70,7 @@ func (o *OAuthFlow) StartFlow(appConfig AppConfig, port string) (*TokenResponse,
 
 func (o *OAuthFlow) startCallbackServer() error {
 	r := mux.NewRouter()
-	r.HandleFunc("/callback", o.handleCallback)
+	r.HandleFunc("/", o.handleCallback)
 
 	o.server = &http.Server{
 		Addr:    ":" + o.port,
@@ -121,7 +121,7 @@ func (o *OAuthFlow) handleCallback(w http.ResponseWriter, r *http.Request) {
 }
 
 func (o *OAuthFlow) buildAuthURL(appConfig AppConfig) string {
-	redirectURI := fmt.Sprintf("http://localhost:%s/callback", o.port)
+	redirectURI := fmt.Sprintf("http://localhost:%s/", o.port)
 
 	// Parse domain to get base URL
 	domainURL, _ := url.Parse(appConfig.Domain)
@@ -137,7 +137,7 @@ func (o *OAuthFlow) buildAuthURL(appConfig AppConfig) string {
 }
 
 func (o *OAuthFlow) exchangeCodeForTokens(code string, appConfig AppConfig) (*TokenResponse, error) {
-	redirectURI := fmt.Sprintf("http://localhost:%s/callback", o.port)
+	redirectURI := fmt.Sprintf("http://localhost:%s/", o.port)
 
 	// Parse domain to get base URL
 	domainURL, _ := url.Parse(appConfig.Domain)

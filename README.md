@@ -239,7 +239,7 @@ Compared to the Node.js version, the Go implementation provides:
 - Go 1.21+ (for building from source)
 - OAuth2 provider configured with authorization code flow
 - OAuth2 Client ID and domain URL
-- Redirect URI configured as `http://localhost:3000/callback` (or your chosen port)
+- Redirect URI configured as `http://localhost:3000/` (or your chosen port)
 
 ## Troubleshooting
 
